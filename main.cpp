@@ -6,6 +6,7 @@
 #include <string>
 #include <DirectXMath.h>
 #include <d3dcompiler.h>
+
 #pragma comment(lib, "d3dcompiler.lib")
 using namespace DirectX;
 
@@ -547,8 +548,14 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	descriptorRange.OffsetInDescriptorsFromTableStart = D3D12_DESCRIPTOR_RANGE_OFFSET_APPEND;
 
 	
+	
+
+
+
 	// ルートパラメータの設定
 	D3D12_ROOT_PARAMETER rootParams[2] = {};
+
+
 
 	// 定数バッファ0番
 	rootParams[0].ParameterType = D3D12_ROOT_PARAMETER_TYPE_CBV;   // 種類
@@ -637,6 +644,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 	const size_t textureHeight = 256;
 	// 配列の要素数
 	const size_t imageDataCount = textureWidth * textureHeight;
+
 	// 画像イメージデータ配列
 	XMFLOAT4* imageData = new XMFLOAT4[imageDataCount]; // ※必ず後で解放する
 
@@ -712,6 +720,15 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
 
 	// ハンドルの指す位置にシェーダーリソースビュー作成
 	device->CreateShaderResourceView(texBuff, &srvDesc, srvHandle);
+
+
+	
+
+
+
+
+
+
 
 	// CBV,SRV,UAVの1個分のサイズを取得
 	UINT descriptorSize = device->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
